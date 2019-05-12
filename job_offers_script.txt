@@ -1,0 +1,143 @@
+CREATE DATABASE job_offers_db;
+
+USE job_offers_db;
+
+CREATE TABLE `companies` (
+`id_company` int(11) NOT NULL AUTO_INCREMENT,
+  
+`company_name` varchar(45) DEFAULT NULL,
+  
+`country` varchar(45) DEFAULT NULL,
+  
+`city` varchar(45) DEFAULT NULL,
+  
+PRIMARY KEY (`id_company`));
+
+CREATE TABLE `skills` (
+
+`id_skill` int(11) NOT NULL AUTO_INCREMENT,
+
+`skill_name` varchar(45) NOT NULL,
+  
+PRIMARY KEY (`id_skill`));
+
+CREATE TABLE `offers`(
+`id_offer` int(11) NOT NULL AUTO_INCREMENT,
+  
+`job_position` varchar(100) NOT NULL,
+
+`id_company` int(11) NOT NULL,
+  
+`earnings_min` int(11) DEFAULT NULL,
+  
+`earnings_max` int(11) DEFAULT NULL,
+  
+PRIMARY KEY (`id_offer`,`id_company`),
+  
+FOREIGN KEY (`id_Company`) REFERENCES `companies` (`id_company`));
+
+CREATE TABLE `job_offers_with_skills` (
+
+`id_offer` int(11) NOT NULL,
+  
+`id_skill` int(11) NOT NULL,
+    
+FOREIGN KEY (`id_skill`) REFERENCES `skills` (`id_skill`),
+FOREIGN KEY (`id_offer`) REFERENCES `offers` (`id_offer`));
+
+CREATE TABLE `users_admins` (
+`id` int(11) AUTO_INCREMENT PRIMARY KEY,
+`login` varchar(45) NOT NULL, 
+`password` varchar(45) NOT NULL,
+`role` varchar(45) NOT NULL);
+
+INSERT INTO `companies` VALUES 
+(1,'Google','Norway','Oslo'),
+(2,'Comarch','Poland','Warsaw'),
+(3,'Microsoft','USA','Seattle'),
+(4,'Google','Poland','Warsaw'),
+(5,'Oracle','Italy','Naples'),
+(6,'Hewlett-Packard','Bulgaria','Varna'),
+(7,'Novotel','Croatia','Sofia'),
+(8,'IKEA','Sweden','Almhut'),
+(9,'Orange','Czech Republic','Praha'),
+(10,'Accenture','Ireland','Dublin'),
+(11,'Commerzbank','Germany','Frankfurt am Main'),
+(12,'Microsoft','Poland','Lodz'),
+(13,'Dell','Poland','Lodz'),
+(14,'T-mobile','Poland','Krakow'),
+(15,'Comarch','Poland','Poznan');
+
+
+INSERT INTO `skills` VALUES 
+(1,'SQL'),
+(2,'PYTHON'),
+(3,'GIT'),
+(4,'Visual Basic'),
+(5,'JavaScript'),
+(6,'Java'),
+(7,'C#'),
+(8,'C++'),
+(9,'.NET'),
+(10,'PHP'),
+(11,'MATLAB'),
+(12,'Perl'),
+(13,'R'),
+(14,'Ruby'),
+(15,'Scala');
+
+INSERT INTO `offers` VALUES 
+(1,'Junior SQL Developer', 3 , 2000, 4000),
+(2,'IT Engineer',1,6000, 8000),
+(3,'Junior Data Scientist',8, 4000, 5000),
+(4,'M³odszy programista C/C++',6, 3500, 5000),
+(5,'Tester oprogramowania',10, 2500, 3000),
+(6,'Senior Fullstack Web Developer', 13, 8500, 10000),
+(7,'Reports Developer',7, 4000, 5000),
+(8,'Junior Data Analyst',14, 3000, 3500),
+(9,'Data Analyst with Python',13, 4000, 5000),
+(10,'Scala Developer', 9, 6000, 7000),
+(11,'Java Developer',13, 5600, 5000),
+(12,'.NET Engineer',12, 11000, 12000),
+(13,'PHP Developer',13, 7000, 8000),
+(14,'Praktykant w Dziale Oprogramowania',2, 4000, 5000),
+(15,'Full-Stack Developer', 4 , 8000, 10000);
+
+INSERT INTO `job_offers_with_skills` VALUES
+(1, 1),
+(2, 2),
+(3, 2),
+(3, 13),
+(3, 11),
+(4, 7),
+(4, 8),
+(5, 1),
+(6, 14),
+(6, 3),
+(6, 5),
+(7, 4),
+(7, 1),
+(8, 11),
+(8, 13),
+(8, 2),
+(10, 15),
+(10, 3),
+(11, 6), 
+(11, 3), 
+(11, 5),
+(12, 9),
+(13, 10),
+(14, 12),
+(14, 3), 
+(14, 2),
+(14, 1),
+(15, 5),
+(15, 6);
+
+INSERT INTO `users_admins` VALUES
+(1, 'emigaj', 'haslo', 'admin');
+
+
+
+
+
