@@ -2,12 +2,12 @@
 
 Database of job offers with defined skills 
 Project created as part of the Python Developer course by PWN Reaktor. 
-Still a lot of work ## [to do] (#to do)..
+Still a lot of work To Do..
 
 ## Table of contents
 * [General info](#general-info)
 * [Technologies](#technologies)
-* [To do](#to do)
+* [To do](#to-do)
 
 ## General info
 Database of job offers and users with defined skills along with: 
