@@ -2,12 +2,12 @@
 
 Database of job offers with defined skills 
 Project created as part of the Python Developer course by PWN Reaktor. 
-Still a lot of work * [to do] (#to do)..
+Still a lot of work ## [to do] (#to do)..
 
 ## Table of contents
 * [General info](#general-info)
 * [Technologies](#technologies)
-* [To Do](#)
+* [To do](#to do)
 
 ## General info
 Database of job offers and users with defined skills along with: 
@@ -20,3 +20,8 @@ Database of job offers and users with defined skills along with:
 Project is created with:
 * SQL (mySQL)
 * Python 3
+
+## To Do
+* an option that allows to search for job offers based on specific criteria, not all
+* formatting the displayed information
+* handling user errors, e.g. inserting spaces at the beginning or end of 'input'
